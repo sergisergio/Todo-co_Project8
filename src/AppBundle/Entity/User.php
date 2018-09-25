@@ -45,9 +45,15 @@ class User implements UserInterface
      */
     private $tasks;
 
+    /**
+     *@ORM\Column(type="array", nullable=true)
+     *@Assert\NotBlank(message="Choisissez un rôle")
+     */
+    private $roles;
+
     public function __construct()
     {
-        $this->tasks = new ArrayCollection();
+        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId()
@@ -90,9 +96,20 @@ class User implements UserInterface
         $this->email = $email;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     public function eraseCredentials()
@@ -102,11 +119,11 @@ class User implements UserInterface
     /**
      * Add task.
      *
-     * @param \App\Bundle\Task $task
+     * @param \AppBundle\Entity\Task $task
      *
      * @return User
      */
-    public function addTask(\App\Bundle\Task $task)
+    public function addTask(\AppBundle\Entity\Task $task)
     {
         $this->tasks[] = $task;
 
@@ -116,11 +133,11 @@ class User implements UserInterface
     /**
      * Remove task.
      *
-     * @param \App\Bundle\Task $task
+     * @param \AppBundle\Entity\Task $task
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeTask(\App\Bundle\Task $task)
+    public function removeTask(\AppBundle\Entity\Task $task)
     {
         return $this->tasks->removeElement($task);
     }

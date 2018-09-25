@@ -41,13 +41,19 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Bundle\Task", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="user", cascade={"persist", "remove"})
      */
     private $tasks;
 
+    /**
+     *@ORM\Column(type="array", nullable=true)
+     *@Assert\NotBlank(message="Choisissez un rôle")
+     */
+    private $roles;
+
     public function __construct()
     {
-        $this->tasks = new ArrayCollection();
+        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId()
@@ -90,12 +96,59 @@ class User implements UserInterface
         $this->email = $email;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     public function eraseCredentials()
     {
+    }
+
+    /**
+     * Add task.
+     *
+     * @param \AppBundle\Entity\Task $task
+     *
+     * @return User
+     */
+    public function addTask(\AppBundle\Entity\Task $task)
+    {
+        $this->tasks[] = $task;
+
+        return $this;
+    }
+
+    /**
+     * Remove task.
+     *
+     * @param \AppBundle\Entity\Task $task
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTask(\AppBundle\Entity\Task $task)
+    {
+        return $this->tasks->removeElement($task);
+    }
+
+    /**
+     * Get tasks.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
     }
 }
