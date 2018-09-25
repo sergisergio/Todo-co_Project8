@@ -41,7 +41,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Task", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Bundle\Task", mappedBy="user", cascade={"persist", "remove"})
      */
     private $tasks;
 
@@ -97,41 +97,5 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
-    }
-
-    /**
-     * Add task.
-     *
-     * @param \App\Bundle\Task $task
-     *
-     * @return User
-     */
-    public function addTask(\App\Bundle\Task $task)
-    {
-        $this->tasks[] = $task;
-
-        return $this;
-    }
-
-    /**
-     * Remove task.
-     *
-     * @param \App\Bundle\Task $task
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeTask(\App\Bundle\Task $task)
-    {
-        return $this->tasks->removeElement($task);
-    }
-
-    /**
-     * Get tasks.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTasks()
-    {
-        return $this->tasks;
     }
 }
