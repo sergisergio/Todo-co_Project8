@@ -91,6 +91,11 @@ class TaskController extends Controller
             $em->flush();
 
             $this->addFlash('success', 'La tâche a bien été supprimée.');
+        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($task);
+            $em->flush();
+            $this->addFlash('success', 'La tâche a bien été supprimée.');
         } else {
             $this->addFlash('error', 'Vous n\'êtes pas l\'auteur de cette tâche.');
         }
