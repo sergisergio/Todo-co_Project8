@@ -9,15 +9,19 @@
 namespace Tests\AppBundle\Entity;
 
 use AppBundle\Entity\Task;
+use AppBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
 
-class TaskTest extends testCase
+class TaskTest extends TestCase
 {
     private $task;
+
+    private $user;
 
     public function setUp()
     {
         $this->task = new Task();
+        $this->user = new User();
     }
 
     public function testTaskIsInstanceOfTaskClass()
@@ -48,8 +52,27 @@ class TaskTest extends testCase
         $this->assertSame('content', $this->task->getContent());
     }
 
+    public function testIsDoneIsOk()
+    {
+        $this->task->setIsDone('true');
+        $this->assertSame('true', $this->task->getIsDone());
+    }
+
     public function testIsDoneIsFalse()
     {
         $this->assertFalse($this->task->isDone());
+    }
+
+    public function testToggle()
+    {
+        $this->task->toggle(true);
+        $this->assertEquals(true, $this->task->isDone());
+    }
+
+    public function testUser()
+    {
+
+        $this->task->setUser($this->user);
+        $this->assertEquals($this->user, $this->task->getUser());
     }
 }

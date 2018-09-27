@@ -77,10 +77,12 @@ class TaskController extends Controller
             return $this->redirectToRoute('task_list');
         }
 
-        return $this->render('task/edit.html.twig', [
+        return $this->render(
+            'task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
-        ]);
+            ]
+        );
     }
 
     /**
@@ -91,7 +93,7 @@ class TaskController extends Controller
         $task->toggle(!$task->isDone());
         $this->getDoctrine()->getManager()->flush();
 
-        if ( $task->isDone() == true) {
+        if ($task->isDone() == true) {
             $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
         } else {
             $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
