@@ -11,7 +11,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/mink-extension" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/mink-goutte-driver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/behat/transliterator" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/bin/.phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/container-interop" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />

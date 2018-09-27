@@ -1,19 +1,36 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: philippetraon
+ * Date: 27/09/2018
+ * Time: 21:21
+ */
 
 namespace Tests\AppBundle\Controller;
 
+if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framework\TestCase')) {
+    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
+}
+
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-//use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Response;
 
-/*class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
+    private $client = null;
+
+    public function setUp()
     {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+        $this->client = static::createClient();
     }
-}*/
+
+    public function testHomepageIsUp()
+    {
+        $this->client->request('GET', '/');
+
+        static::assertSame(
+            302,
+            $this->client->getResponse()->getStatusCode()
+        );
+    }
+}

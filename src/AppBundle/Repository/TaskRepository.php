@@ -11,14 +11,14 @@ namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-/*class TaskRepository extends EntityRepository
+class TaskRepository extends EntityRepository
 {
     public function findAllTasksDone()
     {
         /**
          * @return Task[]
          */
-        /*return $this->createQueryBuilder('task')
+        return $this->createQueryBuilder('task')
             ->andWhere('task.isDone = :isDone')
             ->setParameter('isDone', true)
             ->orderBy('task.createdAt', 'DESC')
@@ -31,11 +31,11 @@ use Doctrine\ORM\EntityRepository;
         /**
          * @return Task[]
          */
-        /*return $this->createQueryBuilder('task')
+        return $this->createQueryBuilder('task')
             ->andWhere('task.isDone = :isDone')
             ->setParameter('isDone', false)
             ->orderBy('task.createdAt', 'DESC')
             ->getQuery()
             ->execute();
     }
-}*/
+}

@@ -8,19 +8,24 @@
 
 namespace Tests\AppBundle\Repository;
 
+if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framework\TestCase')) {
+    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
+}
+
+use AppBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-/*class TaskRepositoryTest extends KernelTestCase
+class TaskRepositoryTest extends KernelTestCase
 {
     /**
      * @var \Doctrine\ORM\EntityManager
      */
-    /*private $em;
+    private $em;
 
     /**
      * {@inheritDoc}
      */
-    /*protected function setUp()
+    protected function setUp()
     {
         self::bootKernel();
 
@@ -29,20 +34,30 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
             ->getManager();
     }
 
+    public function testFindAllTaskToDo()
+    {
+        $tasks = $this->em
+            ->getRepository('AppBundle:Task')
+            ->findAllTasksTodo('2');
+
+        $this->assertCount(2, $tasks
+        );
+    }
+
     public function testFindAllTasksDone()
     {
         $tasks = $this->em
             ->getRepository('AppBundle:Task')
-            ->searchByIsDone()
-        ;
+            ->findAllTasksDone('2');
 
-        $this->assertCount(1, $tasks);
+        $this->assertCount(2, $tasks
+        );
     }
 
     /**
      * {@inheritDoc}
      */
-    /*protected function tearDown()
+    protected function tearDown()
     {
         parent::tearDown();
 
