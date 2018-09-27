@@ -19,6 +19,22 @@ class TaskController extends Controller
     }
 
     /**
+     * @Route("/tasks/todo", name="task_list_todo")
+     */
+    public function listActionTodo()
+    {
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAllTasksTodo()]);
+    }
+
+    /**
+     * @Route("/tasks/done", name="task_list_done")
+     */
+    public function listActionDone()
+    {
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAllTasksDone()]);
+    }
+
+    /**
      * @Route("/tasks/create", name="task_create")
      */
     public function createAction(Request $request)
@@ -75,7 +91,11 @@ class TaskController extends Controller
         $task->toggle(!$task->isDone());
         $this->getDoctrine()->getManager()->flush();
 
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        if ( $task->isDone() == true) {
+            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        } else {
+            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
+        }
 
         return $this->redirectToRoute('task_list');
     }
@@ -97,7 +117,7 @@ class TaskController extends Controller
             $em->flush();
             $this->addFlash('success', 'La tâche a bien été supprimée.');
         } else {
-            $this->addFlash('error', 'Vous n\'êtes pas l\'auteur de cette tâche.');
+            $this->addFlash('error', 'Vous devez être l\'auteur supprimer cette tâche !');
         }
 
         return $this->redirectToRoute('task_list');

@@ -5,13 +5,24 @@
         <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('login_check') }}" method="post">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <div class="container login-form">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form action="{{ path('login_check') }}" method="post">
+                    <label for="username">Nom d'utilisateur :</label><br />
+                    <div class="input-group login-userinput">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input id="username" type="text" class="form-control" name="_username" placeholder="{{ last_username }}">
+                    </div>
 
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="_password" />
-
-        <button class="btn btn-success" type="submit">Se connecter</button>
-    </form>
+                    <label for="password">Mot de passe :</label><br />
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input  id="password" type="password" class="form-control" name="_password">
+                    </div>
+                    <button class="btn btn-success btn-block login-button" type="submit"><i class="fa fa-sign-in"></i> Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
