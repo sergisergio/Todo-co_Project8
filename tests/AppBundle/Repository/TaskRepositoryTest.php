@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: leazygomalas
+ * User: philippetraon
  * Date: 27/09/2018
  * Time: 16:33
  */
@@ -49,4 +49,4 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
         $this->em->close();
         $this->em = null; // avoid memory leaks
     }
-}*/
+}
