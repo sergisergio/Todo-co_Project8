@@ -108,6 +108,25 @@ class TaskController extends Controller
             'task' => $task,
             ]
         );
+        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $form = $this->createForm(TaskType::class, $task);
+
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+
+                $this->addFlash('success', 'La tâche a bien été modifiée.');
+
+                return $this->redirectToRoute('task_list');
+            }
+
+            return $this->render(
+                'task/edit.html.twig', [
+                    'form' => $form->createView(),
+                    'task' => $task,
+                ]
+            );
         } else {
             $this->addFlash('error', 'Vous devez être l\'auteur pour modifier cette tâche !');
             return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll()]);
