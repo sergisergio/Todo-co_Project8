@@ -11,41 +11,56 @@
         <br /><br /><br />
 
     </div>
-
-    <div class="row">
-        {% for task in tasks %}
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4 class="pull-right">
-                        {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
-                    </h4>
-                    <h4><a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-                    {% if task.user == null %}
-                        <p>Auteur: Anonyme</p>
-                    {% else %}
-                        <p>Auteur: {{ task.user.username }}</p>
-                    {% endif %}
-                    <p>{{ task.content }}</p>
-                </div>
-                <div>
-                    <form action="{{ path('task_toggle', {'id' : task.id }) }}">
-                        <button class="btn btn-success btn-sm pull-right">
-                            {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
-                        </button>
-                    </form>
-                    <form action="{{ path('task_delete', {'id' : task.id }) }}">
-                        <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
-                    </form>
-                </div>
-            </div>
-
-            <br /><br />
+    {% if tasks|length == 0 %}
+        <div class="alert alert-warning" role="alert">
+            Il n'y a pas encore de tâche enregistrée. <a href="{{ path('user_create') }}" class="btn btn-warning pull-right">Créer un utilisateur</a>
+            {{ dump(user.roles) }}
         </div>
-        {% else %}
-            <div class="alert alert-warning" role="alert">
-                Il n'y a pas encore de tâche enregistrée. <a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
-            </div>
-        {% endfor %}
-    </div>
+    {% else %}
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Auteur</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Edit</th>
+                    <th>Changer statut</th>
+                    <th>Suppression</th>
+                    <th>Statut</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ task.createdAt|date('d-m-Y') }}</td>
+                        <td>
+                            {% if task.user == null %}
+                                <p>Auteur: Anonyme</p>
+                            {% else %}
+                                <p>{{ task.user.username }}</p>
+                            {% endif %}</td>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.content }}</td>
+                        <td>
+                            <a href="{{ path('task_edit', {'id' : task.id}) }}" class="btn btn-info btn-sm">Modifier</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('task_toggle', {'id' : task.id}) }}" class="btn btn-success btn-sm">{% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('task_delete', {'id' : task.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                        </td>
+                        <td>
+                            {% if task.isDone %}<span class="glyphicon glyphicon-ok" style="color: green;font-size:1.5em;"></span>{% else %}<span class="glyphicon glyphicon-remove" style="color: red;font-size:1.5em;"></span>{% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
 {% endblock %}
