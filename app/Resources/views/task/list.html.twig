@@ -52,7 +52,7 @@
                             <a href="{{ path('task_toggle', {'id' : task.id}) }}" class="btn btn-success btn-sm">{% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}</a>
                         </td>
                         <td>
-                            <a href="{{ path('task_delete', {'id' : task.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                            <a href="{{ path('task_delete', {'id' : task.id}) }}" class="btn btn-danger btn-sm" data-toggle='confirmation' id="button">Supprimer</a>
                         </td>
                         <td>
                             {% if task.isDone %}<span class="glyphicon glyphicon-ok" style="color: green;font-size:1.5em;"></span>{% else %}<span class="glyphicon glyphicon-remove" style="color: red;font-size:1.5em;"></span>{% endif %}
@@ -63,4 +63,5 @@
             </table>
         </div>
     {% endif %}
+
 {% endblock %}

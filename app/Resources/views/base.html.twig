@@ -130,6 +130,17 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.popconfirm.js') }}"></script>
+        <script>
+            $("[data-toggle='confirmation']").popConfirm({
+                title: "Suppression", // The title of the confirm
+                content: "Etes-vous sûr de vouloir effacer cette tâche ?", // The message of the confirm
+                placement: "bottom", // The placement of the confirm (Top, Right, Bottom, Left)
+                container: "body", // The html container
+                yesBtn: "OUI",
+                noBtn: "NON"
+            });
+        </script>
 
     </body>
 </html>
