@@ -32,11 +32,15 @@ php bin/console doctrine:fixtures:load
 php bin/console server:run
 ```
 
-Now check out the api at `http://localhost:8000`
+Now check out at `http://localhost:8000`
 
 **Contribute**
 
 See [Contribute.md](https://github.com/sergisergio/Todo-co_Project8/blob/master/Contribute.md)
+
+**Documentation**
+
+Go to the 'documentation' directory to get the doc and also quality and performances reports.
 
 **Any Questions ?**
 
