@@ -38,4 +38,37 @@ class TaskRepository extends EntityRepository
             ->getQuery()
             ->execute();
     }
+
+    public function findAllTasksByDateDesc()
+    {
+        /**
+         * @return Task[]
+         */
+        return $this->createQueryBuilder('task')
+            ->orderBy('task.createdAt', 'DESC')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findAllTasksByDateAsc()
+    {
+        /**
+         * @return Task[]
+         */
+        return $this->createQueryBuilder('task')
+            ->orderBy('task.createdAt', 'ASC')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findAllTasksByAuthor()
+    {
+        /**
+         * @return Task[]
+         */
+        return $this->createQueryBuilder('task')
+            ->orderBy('task.user', 'ASC')
+            ->getQuery()
+            ->execute();
+    }
 }

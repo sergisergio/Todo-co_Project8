@@ -34,7 +34,7 @@ class TaskRepositoryTest extends KernelTestCase
             ->getManager();
     }
 
-    public function testFindAllTaskToDo()
+    /*public function testFindAllTaskToDo()
     {
         $tasks = $this->em
             ->getRepository('AppBundle:Task')
@@ -42,9 +42,9 @@ class TaskRepositoryTest extends KernelTestCase
 
         $this->assertCount(2, $tasks
         );
-    }
+    }*/
 
-    public function testFindAllTasksDone()
+    /*public function testFindAllTasksDone()
     {
         $tasks = $this->em
             ->getRepository('AppBundle:Task')
@@ -52,7 +52,7 @@ class TaskRepositoryTest extends KernelTestCase
 
         $this->assertCount(2, $tasks
         );
-    }
+    }*/
 
     /**
      * {@inheritDoc}

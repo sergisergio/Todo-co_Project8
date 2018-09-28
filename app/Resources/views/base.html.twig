@@ -43,19 +43,17 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#"></a></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"></a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li><a href="{{ path('user_list') }}">Liste des utilisateurs</a></li>
-                            <li><a href="{{ path('user_create') }}" >Créer un utilisateur</a></li>
+                            <li><a href="{{ path('user_list') }}" class="btn btn-outline-secondary btn-sm">Liste des utilisateurs</a></li>
+                            <li><a href="{{ path('user_create') }}" class="btn btn-outline-secondary btn-sm">Créer un utilisateur</a></li>
                         {% endif %}
 
                         {% if app.user %}
-                            <li><a href="{{ path('task_list') }}">Liste des Tâches</a></li>
-                            <li><a href="{{ path('logout') }}" type="submit">Se déconnecter</a></li>
+                            <li><a href="{{ path('task_list') }}" class="btn btn-outline-secondary btn-sm">Liste des Tâches</a></li>
+                            <li><a href="{{ path('logout') }}" type="submit" class="btn btn-outline-secondary btn-sm">Se déconnecter</a></li>
                         {% endif %}
                         <!--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
@@ -77,9 +75,9 @@
             <div class="row">
                 <br /><br /><br />
                 {% if app.user %}
-                    <p class="text-center">Vous êtes connecté en tant que {{ app.user.username }}</p>
+                    <h3 class="text-center">Vous êtes connecté en tant que {{ app.user.username }}</h3>
                 {% endif %}
-
+                <br /><br /><br />
                 {% if not app.user and 'login' != app.request.attributes.get('_route') %}
                 <a href="{{ path('login') }}" class="btn btn-success">Se connecter</a>
                 {% endif %}

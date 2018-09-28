@@ -54,6 +54,11 @@ footer {
 }
 nav ul a {
     margin: 10px 10px;
+    background: orange;
+    color: white;
+    font-size: 14px !important;
+    border-radius: 8px !important;
+    box-shadow : 6px 6px 20px 4px rgba(0,0,0, 0.2);
 }
 
 .login-form{width:390px;}
@@ -62,3 +67,7 @@ nav ul a {
 .login-button{margin-top:10px;}
 .login-options{margin-bottom:0px;}
 .login-forgot{float: right;}
+
+.btn {
+    box-shadow : 6px 6px 20px 4px rgba(0,0,0, 0.2);
+}

@@ -22,7 +22,7 @@ if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framewo
     class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
 }
 
-class UserTypeTest extends TypeTestCase
+/*class UserTypeTest extends TypeTestCase
 {
     private $entityManager;
 
@@ -78,4 +78,4 @@ class UserTypeTest extends TypeTestCase
             $this->assertArrayHasKey($key, $children);
         }
     }
-}
+}*/

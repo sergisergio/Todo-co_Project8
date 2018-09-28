@@ -52,7 +52,7 @@ php bin/console doctrine:fixtures:load
 php bin/console server:run
 ```
 
-##Do your modifications##
+##Do your modifications
 
 **Create a new branch**
 

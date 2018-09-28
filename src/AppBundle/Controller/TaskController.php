@@ -35,6 +35,30 @@ class TaskController extends Controller
     }
 
     /**
+     * @Route("/tasks/datedesc", name="task_list_datedesc")
+     */
+    public function listActionByDateDesc()
+    {
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAllTasksByDateDesc()]);
+    }
+
+    /**
+     * @Route("/tasks/dateasc", name="task_list_dateasc")
+     */
+    public function listActionByDateAsc()
+    {
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAllTasksByDateAsc()]);
+    }
+
+    /**
+     * @Route("/tasks/author", name="task_list_author")
+     */
+    public function listActionByAuthor()
+    {
+        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAllTasksByAuthor()]);
+    }
+
+    /**
      * @Route("/tasks/create", name="task_create")
      */
     public function createAction(Request $request)
@@ -65,17 +89,18 @@ class TaskController extends Controller
      */
     public function editAction(Task $task, Request $request)
     {
-        $form = $this->createForm(TaskType::class, $task);
+        if ($task->getUser() === $this->getUser()) {
+            $form = $this->createForm(TaskType::class, $task);
 
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            if ($form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
+                $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-            return $this->redirectToRoute('task_list');
-        }
+                return $this->redirectToRoute('task_list');
+            }
 
         return $this->render(
             'task/edit.html.twig', [
@@ -83,6 +108,10 @@ class TaskController extends Controller
             'task' => $task,
             ]
         );
+        } else {
+            $this->addFlash('error', 'Vous devez être l\'auteur pour modifier cette tâche !');
+            return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll()]);
+        }
     }
 
     /**
@@ -90,13 +119,26 @@ class TaskController extends Controller
      */
     public function toggleTaskAction(Task $task)
     {
-        $task->toggle(!$task->isDone());
-        $this->getDoctrine()->getManager()->flush();
+        if ($task->getUser() === $this->getUser()) {
+            $task->toggle(!$task->isDone());
+            $this->getDoctrine()->getManager()->flush();
 
-        if ($task->isDone() == true) {
-            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+            if ($task->isDone() == true) {
+                $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+            } else {
+                $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
+            }
+        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $task->toggle(!$task->isDone());
+            $this->getDoctrine()->getManager()->flush();
+
+            if ($task->isDone() == true) {
+                $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+            } else {
+                $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
+            }
         } else {
-            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
+            $this->addFlash('error', 'Vous devez être l\'auteur et/ou administrateur pour modifier le statut de cette tâche !');
         }
 
         return $this->redirectToRoute('task_list');
@@ -119,7 +161,7 @@ class TaskController extends Controller
             $em->flush();
             $this->addFlash('success', 'La tâche a bien été supprimée.');
         } else {
-            $this->addFlash('error', 'Vous devez être l\'auteur supprimer cette tâche !');
+            $this->addFlash('error', 'Vous devez être l\'auteur pour supprimer cette tâche !');
         }
 
         return $this->redirectToRoute('task_list');
