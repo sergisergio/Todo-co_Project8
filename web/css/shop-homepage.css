@@ -60,6 +60,20 @@ nav ul a {
     box-shadow : 6px 6px 20px 4px rgba(0,0,0, 0.2);
 }
 
+.navbar-toggle {
+    border: 1px solid white !important;
+    margin-top: 16px;
+    margin-right: 25px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.icon-bar {
+    border: 1px solid white !important;
+}
+
 .login-form{width:390px;}
 .login-title{font-family: 'Exo', sans-serif;text-align:center;color: white;}
 .login-userinput{margin-bottom: 10px;}
@@ -69,4 +83,28 @@ nav ul a {
 
 .btn {
     box-shadow : 6px 6px 20px 4px rgba(0,0,0, 0.2);
+}
+
+.modal-header .close {
+    margin-top: -20px;
+}
+
+.modal-content {
+    width:100%;
+}
+
+.modal-dialog-centered {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    min-height:calc(100% - (.5rem * 2));
+}
+
+@media (min-width: 576px) {
+    .modal-dialog-centered {
+        min-height:calc(100% - (1.75rem * 2));
+    }
 }
