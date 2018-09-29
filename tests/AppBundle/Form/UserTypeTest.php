@@ -22,18 +22,12 @@ if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framewo
     class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
 }
 
-/*class UserTypeTest extends TypeTestCase
+class UserTypeTest extends TypeTestCase
 {
-    private $entityManager;
-
-    protected function setUp()
-    {
-        // mock any dependencies
-        $this->entityManager = $this->createMock(ObjectManager::class);
-
-        parent::setUp();
-    }
-
+    private $validator;
+    /**
+     * @return array
+     */
     protected function getExtensions()
     {
         $this->validator = $this->createMock(ValidatorInterface::class);
@@ -43,39 +37,36 @@ if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framewo
         $this->validator
             ->method('getMetadataFor')
             ->will($this->returnValue(new ClassMetadata('Symfony\Component\Form\Form')));
-
         return array(
-            new ValidatorExtension($this->validator),
+            new ValidatorExtension($this->validator)
         );
     }
+    /**
+     * Test the UserType form
+     */
     public function testSubmitValidData()
     {
+        $user = new User();
+        $form = $this->factory->create(UserType::class, $user);
         $formData = array(
             'username' => 'username',
-            'password' => 'password',
-            'email' => 'email',
-            'roles' => 'roles',
+            'password' => array(
+                'first' => 'password',
+                'second' => 'password',
+            ),
+            'email' => 'email@email.fr',
+            'roles' => ['ROLE_USER']
         );
-
-        $form = $this->factory->create(UserType::class);
-
-        $object = New User();
-        $object->setUsername($formData['username']);
-        $object->setPassword($formData['password']);
-        $object->setEmail($formData['email']);
-        $object->setEmail($formData['roles']);
-
-        // submit the data to the form directly
         $form->submit($formData);
-
         $this->assertTrue($form->isSynchronized());
-        $this->assertEquals($object, $form->getData());
-
+        $this->assertSame($user, $form->getData());
+        $this->assertSame('username', $user->getUsername());
+        $this->assertSame('password', $user->getPassword());
+        $this->assertSame('email@email.fr', $user->getEmail());
         $view = $form->createView();
         $children = $view->children;
-
         foreach (array_keys($formData) as $key) {
             $this->assertArrayHasKey($key, $children);
         }
     }
-}*/
+}

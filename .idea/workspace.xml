@@ -2,52 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba32aa2d-cd22-40fd-ad6c-4b4d28451de4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Controller/SecurityControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Controller/SecurityControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Controller/TaskControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Controller/TaskControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Controller/UserControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.css/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.css/nv.d3.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/d3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/file.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/holder.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/nv.d3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/.js/respond.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/AppBundle.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/DefaultController.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/SecurityController.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/TaskController.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/UserController.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/Task.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/User.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/TaskType.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/UserType.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/TaskRepository.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Util/Calculator.php.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Util/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Util/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +40,7 @@
           <entry key="js" value="1" />
           <entry key="json" value="6" />
           <entry key="md" value="6" />
-          <entry key="php" value="84" />
+          <entry key="php" value="85" />
           <entry key="phpunit" value="3" />
           <entry key="twig" value="44" />
           <entry key="yml" value="20" />
@@ -98,7 +53,7 @@
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="6" />
-          <entry key="PHP" value="87" />
+          <entry key="PHP" value="88" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Twig" value="44" />
           <entry key="XML" value="3" />
@@ -156,7 +111,20 @@
         <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/SecurityControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+              <folding>
+                <element signature="e#6#95#0#PHP" expanded="true" />
+                <element signature="e#130#156#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,11 +165,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="66" column="3" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+            <state relative-caret-position="317">
+              <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
               <folding>
                 <element signature="e#6#95#0#PHP" expanded="true" />
                 <element signature="e#313#339#0#PHP" expanded="true" />
@@ -227,18 +195,6 @@
               <folding>
                 <element signature="e#44#96#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Contribute.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="648">
-                <caret line="107" column="61" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="61" />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -270,7 +226,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/web/js/jquery.popconfirm.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/TaskRepository.php" />
-        <option value="$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/create.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TaskController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
@@ -287,6 +242,7 @@
         <option value="$PROJECT_DIR$/tests/AppBundle/Controller/UserControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Controller/DefaultControllerTest.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php" />
+        <option value="$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php" />
       </list>
     </option>
   </component>
@@ -435,6 +391,13 @@
             <path>
               <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
               <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
               <item name="var" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -500,17 +463,18 @@
       <workItem from="1537979258083" duration="1993000" />
       <workItem from="1538033406819" duration="20249000" />
       <workItem from="1538080670407" duration="5635000" />
-      <workItem from="1538120182646" duration="22862000" />
+      <workItem from="1538120182646" duration="23343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71087000" />
+    <option name="totallyTimeSpent" value="71568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="103" width="1642" height="1215" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.135" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -523,7 +487,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38272727" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38272727" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -751,17 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="80" column="3" selection-start-line="80" selection-start-column="3" selection-end-line="80" selection-end-column="3" />
-          <folding>
-            <element signature="e#6#95#0#PHP" expanded="true" />
-            <element signature="e#130#156#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/user/create.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -875,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/SecurityControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/TaskControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -914,11 +860,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="66" column="3" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
+        <state relative-caret-position="317">
+          <caret line="57" column="20" lean-forward="true" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding>
             <element signature="e#6#95#0#PHP" expanded="true" />
             <element signature="e#313#339#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Controller/SecurityControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <folding>
+            <element signature="e#6#95#0#PHP" expanded="true" />
+            <element signature="e#130#156#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
