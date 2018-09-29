@@ -14,7 +14,7 @@ if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framewo
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TaskControllerTest extends WebTestCase
+/*class TaskControllerTest extends WebTestCase
 {
 
-}
+}*/
