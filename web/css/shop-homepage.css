@@ -60,6 +60,18 @@ nav ul a {
     box-shadow : 6px 6px 20px 4px rgba(0,0,0, 0.2);
 }
 
+.dropdown-menu>li>a {
+    border: none;
+    box-shadow: none;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu > li > a {
+        line-height: 20px;
+        color: white;
+    }
+}
+
 .navbar-toggle {
     border: 1px solid white !important;
     margin-top: 16px;

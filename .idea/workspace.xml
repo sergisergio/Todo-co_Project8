@@ -3,30 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ba32aa2d-cd22-40fd-ad6c-4b4d28451de4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contribute.md" beforeDir="false" afterPath="$PROJECT_DIR$/Contribute.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/task/create.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/task/create.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/task/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/task/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/task/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/task/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/css/shop-homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/shop-homepage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/DefaultController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/DefaultController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/SecurityController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/SecurityController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/TaskController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/TaskController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/UserController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/UserController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Controller/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/Task.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Entity/Task.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/User.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Entity/User.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Entity/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Entity/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Entity/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/TaskType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Form/TaskType.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/UserType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Form/UserType.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Form/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Form/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/TaskRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Repository/TaskRepository.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Repository/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/Repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/Repository/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/test-coverage/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +42,7 @@
           <entry key="html" value="1" />
           <entry key="js" value="1" />
           <entry key="json" value="6" />
-          <entry key="md" value="5" />
+          <entry key="md" value="6" />
           <entry key="php" value="76" />
           <entry key="phpunit" value="3" />
           <entry key="twig" value="44" />
@@ -76,7 +55,7 @@
           <entry key="HTML" value="1" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="1" />
-          <entry key="Markdown" value="5" />
+          <entry key="Markdown" value="6" />
           <entry key="PHP" value="79" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Twig" value="44" />
@@ -86,23 +65,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="308" />
+          <entry key="css" value="378" />
           <entry key="dist" value="38" />
           <entry key="json" value="25" />
-          <entry key="md" value="897" />
+          <entry key="md" value="1314" />
           <entry key="php" value="2927" />
           <entry key="phpunit" value="1" />
-          <entry key="twig" value="2156" />
+          <entry key="twig" value="2193" />
           <entry key="yml" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="308" />
+          <entry key="CSS" value="378" />
           <entry key="JSON" value="25" />
-          <entry key="Markdown" value="897" />
+          <entry key="Markdown" value="1314" />
           <entry key="PHP" value="2928" />
-          <entry key="Twig" value="2156" />
+          <entry key="Twig" value="2193" />
           <entry key="XML" value="38" />
           <entry key="YAML" value="52" />
         </counts>
@@ -111,30 +90,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TaskController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2352">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
-              <folding>
-                <element signature="e#40#66#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/task/create.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -174,19 +129,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/task/list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="36" />
-              <folding>
-                <element signature="e#3560#3567#1#HTML" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/task/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
@@ -205,10 +147,47 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/task/list.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-680">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="36" />
+              <folding>
+                <element signature="e#3560#3567#1#HTML" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/shop-homepage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="549">
+              <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Contribute.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="775">
+                <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -243,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/web/js/jquery.popconfirm.js" />
-        <option value="$PROJECT_DIR$/Contribute.md" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/TaskRepository.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Form/UserTypeTest.php" />
         <option value="$PROJECT_DIR$/tests/AppBundle/Repository/TaskRepositoryTest.php" />
@@ -251,12 +229,13 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TaskController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/web/css/shop-homepage.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/task/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/task/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/task/edit.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/shop-homepage.css" />
+        <option value="$PROJECT_DIR$/Contribute.md" />
       </list>
     </option>
   </component>
@@ -349,7 +328,7 @@
       <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="13" />
     <option name="y" value="103" />
     <option name="width" value="1642" />
@@ -426,29 +405,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="task" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="test-coverage" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -501,12 +457,12 @@
       <workItem from="1537979258083" duration="1993000" />
       <workItem from="1538033406819" duration="20249000" />
       <workItem from="1538080670407" duration="5635000" />
-      <workItem from="1538120182646" duration="15617000" />
+      <workItem from="1538120182646" duration="17289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63842000" />
+    <option name="totallyTimeSpent" value="65514000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="103" width="1642" height="1215" extended-state="0" />
@@ -750,16 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Contribute.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="625">
-            <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/user/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -842,13 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/shop-homepage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/task/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -879,7 +818,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/task/list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="-680">
           <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="36" />
           <folding>
             <element signature="e#3560#3567#1#HTML" expanded="true" />
@@ -890,11 +829,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+        <state relative-caret-position="287">
+          <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/shop-homepage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Contribute.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="775">
+            <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

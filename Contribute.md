@@ -81,3 +81,31 @@ Go to your Github Fork, on your new branch and click on "compare & pull request"
 Then write a message to the project's owner: he'll validate or refuse your pull request (he could also ask some informations before accepting or not your pull request).
 
 ![notification de déploiement en prévisualisation](https://user.oc-static.com/upload/2016/09/19/14742929911757_PR.png)
+
+##Quality
+
+**PSR**
+
+Respect PHP Standard Recommendations ([PSR](https://www.php-fig.org/psr/))
+
+See both badges on README file (Codacy and Scrutinizer).
+
+Also, PHP Codesniffer is installed: you can run it:
+```
+./vendor/bin/phpcs -h
+./vendor/bin/phpcbf -h
+```
+
+Please, make sure each time the code is modified, unit and functional tests are added (at least a 70% code coverage).
+Use PHPUnit for this.
+```
+./vendor/bin/phpunit
+```
+Also, you can get all results with this command:
+```
+./vendor/bin/phpunit --coverage-html web/test-coverage
+```
+And then, in this directory, open index.html in your browser.
+
+Travis is installed for Continuous integration (checking code automatically before merging)
+
