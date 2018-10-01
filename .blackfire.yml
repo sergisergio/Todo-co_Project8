@@ -1,0 +1,29 @@
+# .blackfire.yml
+
+# On vérifie que le temps d'exécution d'un script PHP ne consomme pas plus de 10 Mb
+
+# count: le nombre d'appels de la fonction
+# wall_time: le temps complet d'exécution
+# cpu_time: le temps processeur de la fonction
+# memory: la mémoire consommée par la fonction
+# peak_memory: le pic de mémoire utilisée par la fonction
+# network_in: la quantité de données entrantes (réseau)
+# network_out: la quantité de données sortantes (réseau)
+# io: la quantité de données sur le système de fichiers
+
+tests:
+  "Toutes les pages sont rapides":
+    path: "/.*"
+    assertions:
+    - main.wall_time < 60ms
+    - main.memory < 10Mb
+  "Tests spécifiques à Symfony":
+    path: "/.*"
+    assertions:
+    - metrics.symfony.kernel.debug.count == 0 # en mode production
+    - metrics.symfony.yaml.reads.count == 0 # mise en cache du YAML
+    "Tests spécifiques à Twig":
+      path: "/.*"
+      assertions:
+      - metrics.twig.compile.count == 0 # Pas de compilation en production
+      - metrics.twig.attributes.get.count < 30 # Pas trop de logique dans les templates
