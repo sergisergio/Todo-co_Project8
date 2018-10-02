@@ -23,9 +23,8 @@
     </div>
 
     {% if tasks|length == 0 %}
-        <div class="alert alert-warning" role="alert">
-            Il n'y a pas encore de tâche enregistrée. <a href="{{ path('user_create') }}" class="btn btn-warning pull-right">Créer un utilisateur</a>
-            {{ dump(user.roles) }}
+        <div class="alert alert-warning text-center" role="alert">
+            Il n'y a pas encore de tâche enregistrée.
         </div>
     {% else %}
         <div class="row">
@@ -48,7 +47,7 @@
                         <th scope="row">{{ loop.index }}</th>
                         <td>{{ task.createdAt|date('d-m-Y') }}</td>
                         <td>
-                            {% if task.user == null %}
+                            {% if task.user.username == null %}
                                 <p>Anonyme</p>
                             {% else %}
                                 <p>{{ task.user.username }}</p>
