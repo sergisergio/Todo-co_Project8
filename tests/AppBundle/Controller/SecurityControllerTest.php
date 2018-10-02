@@ -1,9 +1,6 @@
 <?php
 namespace tests\AppBundle\Controller;
 
-/*if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framework\TestCase')) {
-    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
-}*/
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -15,69 +12,48 @@ Class SecurityControllerTest extends WebTestCase
      * @var Client
      */
     private $client;
+
     public function setUp()
     {
         $this->client = static::createClient();
     }
 
-    public function testLoginRoleUser()
+    public function testLoginShow()
     {
-        $crawler = $this->client->request('GET', '/login');
-        $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'user';
-        $form['_password'] = 'user';
-        $this->client->submit($form);
-
-        $this->assertTrue($this->client->getResponse()->isRedirect());
-        $this->client->followRedirect();
-
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode(), $this->client->getResponse()->getContent());
-        $this->assertTrue(
-            $this
-                ->client
-                ->getContainer()
-                ->get('security.authorization_checker')
-                ->isGranted('ROLE_USER')
-        );
+        $client = static::createClient();$client->request('GET', '/login');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
-    public function testLoginRoleAdmin()
+    public function testAdminLogin()
     {
-        $crawler = $this->client->request('GET', '/login');
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'admin';
-        $form['_password'] = 'admin';
-        $this->client->submit($form);
-
-        $this->assertTrue($this->client->getResponse()->isRedirect());
-        $this->client->followRedirect();
-
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue(
-            $this
-                ->client
-                ->getContainer()
-                ->get('security.authorization_checker')
-                ->isGranted('ROLE_ADMIN')
-        );
+        $form['_username'] = "admin";
+        $form['_password'] = "admin";
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+        $this->assertSame(1, $crawler->filter('a:contains("Se déconnecter")')->count());
     }
-    public function testBadLogin()
+    public function testUserLogin()
     {
-        $crawler = $this->client->request('GET', '/login');
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form();
-        $form['_username'] = 'wrong';
-        $form['_password'] = 'wrong';
-        $this->client->submit($form);
-        // Redirect response and follow
-        $this->assertTrue($this->client->getResponse()->isRedirect());
-        $this->client->followRedirect();
-
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue(
-            $this
-                ->client
-                ->getContainer()
-                ->get('security.authorization_checker')
-                ->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')
-        );
+        $form['_username'] = "user";
+        $form['_password'] = "user";
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+        $this->assertSame(1, $crawler->filter('a:contains("Se déconnecter")')->count());
+    }
+    public function testWrongLogin()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/login');
+        $form = $crawler->selectButton('Se connecter')->form();
+        $form['_username'] = "user";
+        $form['_password'] = "wrong_password";
+        $client->submit($form);
+        $crawler = $client->followRedirect();
+        $this->assertSame(1, $crawler->filter('div.alert.alert-danger')->count());
     }
 }

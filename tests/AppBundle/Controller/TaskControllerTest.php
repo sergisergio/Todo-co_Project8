@@ -8,13 +8,90 @@
 
 namespace Tests\AppBundle\Controller;
 
-/*if (!class_exists('PHPUnit_Framework_TestCase') && class_exists('PHPUnit\Framework\TestCase')) {
-    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
-}*/
-
+use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
-/*class TaskControllerTest extends WebTestCase
+class TaskControllerTest extends WebTestCase
 {
+    /**
+     * @var Client
+     */
+    private $client;
 
-}*/
+    public function setUp()
+    {
+        $this->client = static::createClient();
+    }
+
+    private function logIn($role = 'ROLE_USER')
+    {
+        if ($role == 'ROLE_USER') {
+            $crawler = $this->client->request('GET', '/login');
+            $form = $crawler->selectButton('Se connecter')->form();
+            $form['_username'] = 'user';
+            $form['_password'] = 'user';
+            $this->client->submit($form);
+            return;
+        }
+        if ($role == 'ROLE_ADMIN') {
+            $crawler = $this->client->request('GET', '/login');
+            $form = $crawler->selectButton('Se connecter')->form();
+            $form['_username'] = 'admin';
+            $form['_password'] = 'admin';
+            $this->client->submit($form);
+        }
+    }
+
+    public function testCreateTask()
+    {
+        $this->logIn();
+        $crawler =  $this->client->request('GET', '/tasks/create');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        // Form submit
+        $form = $crawler->selectButton('Ajouter')->form();
+        $form['task[title]'] = 'Titre';
+        $form['task[content]'] = 'Contenu';
+        $this->client->submit($form);
+
+        $this->assertTrue($this->client->getResponse()->isRedirect());
+        $crawler = $this->client->followRedirect();
+
+        $this->assertGreaterThan(0, $crawler->filter('div:contains("La tâche a été bien été ajoutée.")')->count());
+    }
+
+    public function testTaskToDo()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/todo');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testTaskDone()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/done');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testTaskDateDesc()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/datedesc');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testTaskDateAsc()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/dateasc');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testTaskAuthor()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/author');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+    }
+}
