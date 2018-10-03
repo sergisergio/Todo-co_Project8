@@ -47,7 +47,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->logIn();
         $crawler =  $this->client->request('GET', '/tasks/create');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
         // Form submit
         $form = $crawler->selectButton('Ajouter')->form();
         $form['task[title]'] = 'Titre';
@@ -63,36 +63,36 @@ class TaskControllerTest extends WebTestCase
     public function testTaskToDo()
     {
         $this->logIn();
-        $crawler = $this->client->request('GET', '/tasks/todo');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->client->request('GET', '/tasks/todo');
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testTaskDone()
     {
         $this->logIn();
-        $crawler = $this->client->request('GET', '/tasks/done');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->client->request('GET', '/tasks/done');
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testTaskDateDesc()
     {
         $this->logIn();
-        $crawler = $this->client->request('GET', '/tasks/datedesc');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->client->request('GET', '/tasks/datedesc');
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testTaskDateAsc()
     {
         $this->logIn();
         $crawler = $this->client->request('GET', '/tasks/dateasc');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testTaskAuthor()
     {
         $this->logIn();
         $crawler = $this->client->request('GET', '/tasks/author');
-        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testCreate()
@@ -111,7 +111,7 @@ class TaskControllerTest extends WebTestCase
             'task[title]' => 'titre',
             'task[content]' => 'contenu'
         ]);
-        static::assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->assertSame(302, $this->client->getResponse()->getStatusCode());
     }
 
     public function testEdit()
@@ -123,8 +123,8 @@ class TaskControllerTest extends WebTestCase
             '_username' => 'user',
             '_password' => 'user'
         ]);
-        $crawler = $this->client->request('GET', '/tasks/1/edit');
-        static::assertEquals(200, $this->client->getResponse()->getStatusCode());
+        $this->client->request('GET', '/tasks/1/edit');
+        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
     }
 
     public function testToggle()
@@ -136,7 +136,7 @@ class TaskControllerTest extends WebTestCase
             '_username' => 'user',
             '_password' => 'user'
         ]);
-        $crawler = $this->client->request('GET', '/tasks/1/toggle');
-        static::assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->client->request('GET', '/tasks/1/toggle');
+        $this->assertSame(302, $this->client->getResponse()->getStatusCode());
     }
 }
