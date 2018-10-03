@@ -27,6 +27,7 @@
                 <directory>src/*/*Bundle/Resources</directory>
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
                 <directory>src/AppBundle/AppBundle.php</directory>
+                <directory>src/AppBundle/DataFixtures</directory>
             </exclude>
         </whitelist>
     </filter>

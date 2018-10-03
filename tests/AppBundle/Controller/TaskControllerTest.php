@@ -94,4 +94,49 @@ class TaskControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/tasks/author');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
     }
+
+    public function testCreate()
+    {
+        $crawler = $this->client->request('GET', '/login');
+        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
+        $form = $buttonCrawlerForm->form();
+        $this->client->submit($form, [
+            '_username' => 'user',
+            '_password' => 'user'
+        ]);
+        $crawler = $this->client->request('GET', '/tasks/create');
+        $buttonCrawlerAddTask = $crawler->selectButton('Ajouter');
+        $formTask = $buttonCrawlerAddTask->form();
+        $this->client->submit($formTask, [
+            'task[title]' => 'titre',
+            'task[content]' => 'contenu'
+        ]);
+        static::assertEquals(302, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testEdit()
+    {
+        $crawler = $this->client->request('GET', '/login');
+        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
+        $form = $buttonCrawlerForm->form();
+        $this->client->submit($form, [
+            '_username' => 'user',
+            '_password' => 'user'
+        ]);
+        $crawler = $this->client->request('GET', '/tasks/1/edit');
+        static::assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+
+    public function testToggle()
+    {
+        $crawler = $this->client->request('GET', '/login');
+        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
+        $form = $buttonCrawlerForm->form();
+        $this->client->submit($form, [
+            '_username' => 'user',
+            '_password' => 'user'
+        ]);
+        $crawler = $this->client->request('GET', '/tasks/1/toggle');
+        static::assertEquals(302, $this->client->getResponse()->getStatusCode());
+    }
 }
