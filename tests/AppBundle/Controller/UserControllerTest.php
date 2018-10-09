@@ -12,11 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserControllerTest extends WebTestCase
+/*class UserControllerTest extends WebTestCase
 {
-    /**
-     * @var Client
-     */
     private $client;
 
     public function setUp()
@@ -110,4 +107,9 @@ class UserControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/users/1/edit');
         static::assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
-}
+
+    public function tearDown()
+    {
+        $this->client = null;
+    }
+}*/

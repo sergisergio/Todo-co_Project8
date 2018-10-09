@@ -7,9 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 class DefaultControllerTest extends WebTestCase
 {
-    /**
-     * @var Client
-     */
     private $client;
 
     public function setUp()
@@ -33,5 +30,10 @@ class DefaultControllerTest extends WebTestCase
         $session->save();
         $cookie = new Cookie($session->getName(), $session->getId());
         $this->client->getCookieJar()->set($cookie);
+    }
+
+    public function tearDown()
+    {
+        $this->client = null;
     }
 }

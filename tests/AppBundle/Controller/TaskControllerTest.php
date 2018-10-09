@@ -10,13 +10,9 @@ namespace Tests\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
-class TaskControllerTest extends WebTestCase
+/*class TaskControllerTest extends WebTestCase
 {
-    /**
-     * @var Client
-     */
     private $client;
 
     public function setUp()
@@ -43,7 +39,7 @@ class TaskControllerTest extends WebTestCase
         }
     }
 
-    public function testCreateTask()
+    /*public function testCreateTask()
     {
         $this->logIn();
         $crawler =  $this->client->request('GET', '/tasks/create');
@@ -139,4 +135,5 @@ class TaskControllerTest extends WebTestCase
         $this->client->request('GET', '/tasks/1/toggle');
         $this->assertSame(302, $this->client->getResponse()->getStatusCode());
     }
-}
+
+}*/

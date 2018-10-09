@@ -32,6 +32,8 @@ class AppFixtures extends Fixture implements ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
         // Users
+
+        // User
         $user = new User();
         $user->setUsername('user');
         $encoder = $this->container->get('security.password_encoder');
@@ -40,6 +42,8 @@ class AppFixtures extends Fixture implements ContainerAwareInterface
         $user->setEmail('user@user.fr ');
         $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
+
+        // Admin
 
         $admin = new User();
         $admin->setUsername('admin');
@@ -50,6 +54,7 @@ class AppFixtures extends Fixture implements ContainerAwareInterface
         $admin->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
+        // Anonymous
         $anonymous = new User();
         $anonymous->setUsername(null);
         $anonymous->setPassword('');

@@ -28,6 +28,12 @@
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
                 <directory>src/AppBundle/AppBundle.php</directory>
                 <directory>src/AppBundle/DataFixtures</directory>
+                <directory>vendor/*</directory>
+                <directory>app/*</directory>
+                <directory>bin/*</directory>
+                <directory>documentation/*</directory>
+                <directory>var/*</directory>
+                <directory>web/*</directory>
             </exclude>
         </whitelist>
     </filter>

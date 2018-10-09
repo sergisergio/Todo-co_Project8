@@ -10,9 +10,7 @@ namespace Tests\AppBundle\Form;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
-use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Mapping\ClassMetadata;

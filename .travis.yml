@@ -1,7 +1,15 @@
 language: php
+
 php:
 - '7.2'
 
+env:
+  - SYMFONY_VERSION="3.4.*"
+
 script:
 - composer install
+- cp app/config/parameters.yml.dist app/config/parameters.yml
+- php bin/console doctrine:database:create --env=test
+- php bin/console doctrine:schema:create --env=test
+- php bin/console doctrine:fixtures:load -n --env=test
 - vendor/bin/phpunit
