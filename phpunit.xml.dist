@@ -9,7 +9,7 @@
 >
     <php>
         <ini name="error_reporting" value="-1" />
-        <server name="KERNEL_CLASS" value="AppKernel" />
+        <server name="KERNEL_DIR" value="app/" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
     </php>
 
@@ -28,12 +28,6 @@
                 <directory>src/*/Bundle/*Bundle/Resources</directory>
                 <directory>src/AppBundle/AppBundle.php</directory>
                 <directory>src/AppBundle/DataFixtures</directory>
-                <directory>vendor/*</directory>
-                <directory>app/*</directory>
-                <directory>bin/*</directory>
-                <directory>documentation/*</directory>
-                <directory>var/*</directory>
-                <directory>web/*</directory>
             </exclude>
         </whitelist>
     </filter>

@@ -8,10 +8,14 @@
 
 namespace Tests\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use AppBundle\Entity\User;
 
-/*class TaskControllerTest extends WebTestCase
+class TaskControllerTest extends WebTestCase
 {
     private $client;
 
@@ -20,120 +24,26 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
         $this->client = static::createClient();
     }
 
-    private function logIn($role = 'ROLE_USER')
+    private function logIn()
     {
-        if ($role == 'ROLE_USER') {
-            $crawler = $this->client->request('GET', '/login');
-            $form = $crawler->selectButton('Se connecter')->form();
-            $form['_username'] = 'user';
-            $form['_password'] = 'user';
-            $this->client->submit($form);
-            return;
-        }
-        if ($role == 'ROLE_ADMIN') {
-            $crawler = $this->client->request('GET', '/login');
-            $form = $crawler->selectButton('Se connecter')->form();
-            $form['_username'] = 'admin';
-            $form['_password'] = 'admin';
-            $this->client->submit($form);
-        }
+        $session = $this->client->getContainer()->get('session');
+        $firewallName = 'main';
+        $token = new UsernamePasswordToken('admin', 'admin', $firewallName, array('ROLE_ADMIN'));
+        $session->set('_security_'.$firewallName, serialize($token));
+        $session->save();
+        $cookie = new Cookie($session->getName(), $session->getId());
+        $this->client->getCookieJar()->set($cookie);
     }
 
-    /*public function testCreateTask()
+    public function testTaskListPageIsUp()
     {
         $this->logIn();
-        $crawler =  $this->client->request('GET', '/tasks/create');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-        // Form submit
-        $form = $crawler->selectButton('Ajouter')->form();
-        $form['task[title]'] = 'Titre';
-        $form['task[content]'] = 'Contenu';
-        $this->client->submit($form);
-
-        $this->assertTrue($this->client->getResponse()->isRedirect());
-        $crawler = $this->client->followRedirect();
-
-        $this->assertGreaterThan(0, $crawler->filter('div:contains("La tâche a été bien été ajoutée.")')->count());
+        $crawler = $this->client->request('GET', '/tasks');
+        static::assertEquals(1, $crawler->filter('a[href="/tasks/create"]')->count());
     }
 
-    public function testTaskToDo()
+    public function tearDown()
     {
-        $this->logIn();
-        $this->client->request('GET', '/tasks/todo');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
+        $this->client = null;
     }
-
-    public function testTaskDone()
-    {
-        $this->logIn();
-        $this->client->request('GET', '/tasks/done');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testTaskDateDesc()
-    {
-        $this->logIn();
-        $this->client->request('GET', '/tasks/datedesc');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testTaskDateAsc()
-    {
-        $this->logIn();
-        $crawler = $this->client->request('GET', '/tasks/dateasc');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testTaskAuthor()
-    {
-        $this->logIn();
-        $crawler = $this->client->request('GET', '/tasks/author');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testCreate()
-    {
-        $crawler = $this->client->request('GET', '/login');
-        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
-        $form = $buttonCrawlerForm->form();
-        $this->client->submit($form, [
-            '_username' => 'user',
-            '_password' => 'user'
-        ]);
-        $crawler = $this->client->request('GET', '/tasks/create');
-        $buttonCrawlerAddTask = $crawler->selectButton('Ajouter');
-        $formTask = $buttonCrawlerAddTask->form();
-        $this->client->submit($formTask, [
-            'task[title]' => 'titre',
-            'task[content]' => 'contenu'
-        ]);
-        $this->assertSame(302, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testEdit()
-    {
-        $crawler = $this->client->request('GET', '/login');
-        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
-        $form = $buttonCrawlerForm->form();
-        $this->client->submit($form, [
-            '_username' => 'user',
-            '_password' => 'user'
-        ]);
-        $this->client->request('GET', '/tasks/1/edit');
-        $this->assertSame(200, $this->client->getResponse()->getStatusCode());
-    }
-
-    public function testToggle()
-    {
-        $crawler = $this->client->request('GET', '/login');
-        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
-        $form = $buttonCrawlerForm->form();
-        $this->client->submit($form, [
-            '_username' => 'user',
-            '_password' => 'user'
-        ]);
-        $this->client->request('GET', '/tasks/1/toggle');
-        $this->assertSame(302, $this->client->getResponse()->getStatusCode());
-    }
-
-}*/
+}

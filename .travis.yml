@@ -3,13 +3,21 @@ language: php
 php:
 - '7.2'
 
+services:
+  - mysql
+
 env:
   - SYMFONY_VERSION="3.4.*"
 
+before-install:
+- composer self-update
+
+install:
+  - cp app/config/config_test.yml.travis app/config/config_test.yml
+  - composer install
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
+
 script:
-- composer install
-- cp app/config/parameters.yml.dist app/config/parameters.yml
-- php bin/console doctrine:database:create --env=test
-- php bin/console doctrine:schema:create --env=test
-- php bin/console doctrine:fixtures:load -n --env=test
-- vendor/bin/phpunit
+  - vendor/bin/phpunit
