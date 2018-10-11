@@ -1,6 +1,7 @@
 # Todo-co_Project8
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/707b82b0ab7a42448293a485fb5a79e2)](https://www.codacy.com/app/sergisergio/Todo-co_Project8?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sergisergio/Todo-co_Project8&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/707b82b0ab7a42448293a485fb5a79e2)](https://www.codacy.com/app/sergisergio/Todo-co_Project8?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sergisergio/Todo-co_Project8&amp;utm_campaign=Badge_Coverage)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sergisergio/Bilemo_Project7/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sergisergio/Bilemo_Project7/?branch=master)
 
