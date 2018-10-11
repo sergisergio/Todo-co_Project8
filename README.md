@@ -5,6 +5,9 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sergisergio/Bilemo_Project7/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sergisergio/Bilemo_Project7/?branch=master)
 
 [![Build Status](https://travis-ci.com/sergisergio/Todo-co_Project8.svg?branch=master)](https://travis-ci.com/sergisergio/Todo-co_Project8)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/f87872297f3f24e95a3a/maintainability)](https://codeclimate.com/github/sergisergio/Todo-co_Project8/maintainability)
+
 ## Setup
 
 **Download Composer dependencies**
