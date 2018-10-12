@@ -108,7 +108,7 @@ class TaskController extends Controller
             'task' => $task,
             ]
         );
-        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+        } /*elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $form = $this->createForm(TaskType::class, $task);
 
             $form->handleRequest($request);
@@ -127,7 +127,7 @@ class TaskController extends Controller
                     'task' => $task,
                 ]
             );
-        } else {
+        } */else {
             $this->addFlash('error', 'Vous devez être l\'auteur pour modifier cette tâche !');
             return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll()]);
         }
@@ -147,7 +147,7 @@ class TaskController extends Controller
             } else {
                 $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
             }
-        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+        } /*elseif ($task->getUser()->getUsername() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $task->toggle(!$task->isDone());
             $this->getDoctrine()->getManager()->flush();
 
@@ -156,7 +156,7 @@ class TaskController extends Controller
             } else {
                 $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
             }
-        } else {
+        } */else {
             $this->addFlash('error', 'Vous devez être l\'auteur et/ou administrateur pour modifier le statut de cette tâche !');
         }
 
@@ -174,7 +174,7 @@ class TaskController extends Controller
             $em->flush();
 
             $this->addFlash('success', 'La tâche a bien été supprimée.');
-        } elseif ($task->getUser() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+        } elseif ($task->getUser()->getUsername() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($task);
             $em->flush();

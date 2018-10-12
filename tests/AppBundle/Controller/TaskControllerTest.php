@@ -137,6 +137,26 @@ class TaskControllerTest extends WebTestCase
         static::assertSame(1, $crawler->filter('html:contains("faire.")')->count());
     }
 
+    public function testTaskToggle2()
+    {
+        $crawler = $this->client->request('GET', '/tasks/1/toggle', array(), array(), array(
+            'PHP_AUTH_USER' => 'user',
+            'PHP_AUTH_PW'   => 'user',
+        ));
+        $crawler = $this->client->followRedirect();
+        static::assertSame(1, $crawler->filter('html:contains("devez")')->count());
+    }
+
+    public function testTaskDeleteByBadAuthor()
+    {
+        $crawler = $this->client->request('GET', '/tasks/1/delete', array(), array(), array(
+            'PHP_AUTH_USER' => 'user',
+            'PHP_AUTH_PW'   => 'user',
+        ));
+        $crawler = $this->client->followRedirect();
+        static::assertSame(1, $crawler->filter('html:contains("devez")')->count());
+    }
+
     public function tearDown()
     {
         $this->client = null;

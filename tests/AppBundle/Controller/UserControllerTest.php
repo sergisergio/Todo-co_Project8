@@ -97,7 +97,7 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(302, $this->client->getResponse()->getStatusCode());
     }
 
-    public function testEdit()
+    /*public function testEdit()
     {
         $crawler = $this->client->request('GET', '/login');
         $buttonCrawlerForm = $crawler->selectButton('Se connecter');
@@ -118,7 +118,7 @@ class UserControllerTest extends WebTestCase
         $this->client->submit($form);
         $crawler = $this->client->followRedirect();
         $this->assertSame(1, $crawler->filter('div.alert.alert-success:contains("modifié")')->count());
-    }
+    }*/
 
     public function tearDown()
     {
