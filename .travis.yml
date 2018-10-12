@@ -20,8 +20,8 @@ install:
   - php bin/console doctrine:fixtures:load -n --env=test
 
 script:
-  - php vendor/bin/phpunit
-  - php vendor/bin/phpunit --coverage-html web/test-coverage
+  - php vendor/bin/phpunit --coverage-clover builds/coverage/xml
+  - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - php vendor/bin/codacycoverage clover build/coverage/xml
