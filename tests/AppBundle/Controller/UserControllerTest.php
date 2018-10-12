@@ -8,11 +8,13 @@
 
 namespace Tests\AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
 
-/*class UserControllerTest extends WebTestCase
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AppBundle\Entity\User;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
+class UserControllerTest extends WebTestCase
 {
     private $client;
 
@@ -106,10 +108,20 @@ use Symfony\Component\HttpFoundation\Response;
         ]);
         $crawler = $this->client->request('GET', '/users/1/edit');
         static::assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+        $form = $crawler->selectButton('Modifier')->form();
+        $form['user[username]'] = 'user';
+        $form['user[password][first]'] = 'userpassword';
+        $form['user[password][second]'] = 'userpassword';
+        $form['user[email]'] = 'test@test.com';
+        $form['user[roles]'] = 'ROLE_USER';
+        $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
+        $this->assertSame(1, $crawler->filter('div.alert.alert-success:contains("modifié")')->count());
     }
 
     public function tearDown()
     {
         $this->client = null;
     }
-}*/
+}

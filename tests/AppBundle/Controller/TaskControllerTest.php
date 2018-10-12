@@ -46,7 +46,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->logIn();
         $crawler = $this->client->request('GET', '/tasks/todo');
-        static::assertEquals(1, $crawler->filter('a[href="/tasks/1/toggle"]')->count());
+        static::assertEquals(1, $crawler->filter('a[href="/tasks/2/toggle"]')->count());
     }
 
     public function testTaskDonePageIsUp()
@@ -75,6 +75,66 @@ class TaskControllerTest extends WebTestCase
         $this->logIn();
         $crawler = $this->client->request('GET', '/tasks/author');
         static::assertEquals(1, $crawler->filter('html:contains("Trier par")')->count());
+    }
+
+    public function testTaskCreate()
+    {
+        $crawler = $this->client->request('GET', '/tasks/create', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $form = $crawler->filter('button[type="submit"]')->form();
+        $form['task[title]'] = 'test test';
+        $form['task[content]'] = 'test test';
+        $crawler = $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
+        static::assertEquals(1, $crawler->filter('html:contains("La tâche a été bien été ajoutée.")')->count());
+    }
+
+    public function testTaskEdit()
+    {
+        $crawler = $this->client->request('GET', '/tasks/2/edit', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $form = $crawler->filter('button[type="submit"]')->form();
+        $form['task[title]'] = 'test';
+        $form['task[content]'] = 'test';
+        $crawler = $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
+        static::assertEquals(1, $crawler->filter('html:contains("modifiée.")')->count());
+    }
+
+    public function testTaskEdit2()
+    {
+        $crawler = $this->client->request('GET', '/tasks/2/edit', array(), array(), array(
+            'PHP_AUTH_USER' => 'user',
+            'PHP_AUTH_PW'   => 'user',
+        ));
+        //$crawler = $this->client->followRedirect();
+        static::assertEquals(1, $crawler->filter('html:contains("devez")')->count());
+    }
+
+    public function testTaskToggleOn()
+    {
+        $crawler = $this->client->request('GET', '/tasks/1/toggle', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $crawler = $this->client->followRedirect();
+        //$this->assertSame(302, $this->client->getResponse()->getStatusCode());
+        static::assertSame(1, $crawler->filter('html:contains("faite.")')->count());
+    }
+
+    public function testTaskToggleOff()
+    {
+        $crawler = $this->client->request('GET', '/tasks/1/toggle', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $crawler = $this->client->followRedirect();
+        //$this->assertSame(302, $this->client->getResponse()->getStatusCode());
+        static::assertSame(1, $crawler->filter('html:contains("faire.")')->count());
     }
 
     public function tearDown()
