@@ -106,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/logs/clover.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-3985" />
@@ -145,11 +145,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
+            <state relative-caret-position="462">
+              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -395,17 +395,6 @@
               <item name="AppBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Todo-co_Project8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Todo-co_Project8" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="test-coverage" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -467,12 +456,12 @@
       <workItem from="1538468007848" duration="12003000" />
       <workItem from="1538550974747" duration="12524000" />
       <workItem from="1539096053198" duration="1595000" />
-      <workItem from="1539098159371" duration="25522000" />
+      <workItem from="1539098159371" duration="26180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135357000" />
+    <option name="totallyTimeSpent" value="136015000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,9 +474,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1352" y="23" width="1175" height="1264" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19593999" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19593999" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -500,7 +488,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.36901653" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.36901653" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -859,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -876,6 +857,13 @@
     <entry file="file://$PROJECT_DIR$/build/logs/clover.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3985" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        </state>
       </provider>
     </entry>
   </component>
