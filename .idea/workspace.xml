@@ -79,7 +79,7 @@
           <entry key="phpunit" value="1" />
           <entry key="travis" value="54" />
           <entry key="twig" value="2242" />
-          <entry key="yml" value="760" />
+          <entry key="yml" value="772" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -91,7 +91,7 @@
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Twig" value="2242" />
           <entry key="XML" value="128" />
-          <entry key="YAML" value="814" />
+          <entry key="YAML" value="826" />
         </counts>
       </usages-collector>
     </session>
@@ -125,16 +125,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="63" />
+            <state relative-caret-position="525">
+              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -430,12 +430,12 @@
       <workItem from="1538468007848" duration="12003000" />
       <workItem from="1538550974747" duration="12524000" />
       <workItem from="1539096053198" duration="1595000" />
-      <workItem from="1539098159371" duration="26780000" />
+      <workItem from="1539098159371" duration="27385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136615000" />
+    <option name="totallyTimeSpent" value="137220000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -830,15 +830,15 @@
         <state relative-caret-position="-3985" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
