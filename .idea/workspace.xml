@@ -142,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="546">
-              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -458,12 +458,12 @@
       <workItem from="1538468007848" duration="12003000" />
       <workItem from="1538550974747" duration="12524000" />
       <workItem from="1539096053198" duration="1595000" />
-      <workItem from="1539098159371" duration="24125000" />
+      <workItem from="1539098159371" duration="24895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133960000" />
+    <option name="totallyTimeSpent" value="134730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -866,7 +866,7 @@
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="59" />
         </state>
       </provider>
     </entry>
