@@ -8,10 +8,10 @@
 
 namespace Tests\AppBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use AppBundle\Entity\User;
 
@@ -40,6 +40,41 @@ class TaskControllerTest extends WebTestCase
         $this->logIn();
         $crawler = $this->client->request('GET', '/tasks');
         static::assertEquals(1, $crawler->filter('a[href="/tasks/create"]')->count());
+    }
+
+    public function testTaskToDoPageIsUp()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/todo');
+        static::assertEquals(1, $crawler->filter('a[href="/tasks/1/toggle"]')->count());
+    }
+
+    public function testTaskDonePageIsUp()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/done');
+        static::assertEquals(1, $crawler->filter('html:contains("Trier par")')->count());
+    }
+
+    public function testTaskByDateDescPageIsUp()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/datedesc');
+        static::assertEquals(1, $crawler->filter('html:contains("Trier par")')->count());
+    }
+
+    public function testTaskByDateAscPageIsUp()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/dateasc');
+        static::assertEquals(1, $crawler->filter('html:contains("Trier par")')->count());
+    }
+
+    public function testTaskByAuthorPageIsUp()
+    {
+        $this->logIn();
+        $crawler = $this->client->request('GET', '/tasks/author');
+        static::assertEquals(1, $crawler->filter('html:contains("Trier par")')->count());
     }
 
     public function tearDown()
