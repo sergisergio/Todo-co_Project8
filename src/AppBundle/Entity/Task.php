@@ -123,12 +123,12 @@ class Task
 
     /**
      * Set user.
-     *
+     * Delete \AppBundle\Entity\User
      * @param \AppBundle\Entity\User $user
      *
      * @return Task
      */
-    public function setUser(\AppBundle\Entity\User $user)
+    public function setUser($user)
     {
         $this->user = $user;
 
