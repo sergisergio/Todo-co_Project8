@@ -313,7 +313,7 @@ class TaskControllerTest extends WebTestCase
     {
         echo shell_exec('php bin/console doctrine:schema:drop --force --env=test');
         echo shell_exec('php bin/console doctrine:schema:create --env=test');
-        echo shell_exec('php bin/console doctrine:fixtures:load --env=test');
+        echo shell_exec('php bin/console doctrine:fixtures:load  --no-interaction --env=test');
         return [
             [""]
         ];
