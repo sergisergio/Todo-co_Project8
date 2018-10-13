@@ -15,9 +15,9 @@ before-install:
 install:
   - cp app/config/config_test.yml.travis app/config/config_test.yml
   - composer install
-  #- php bin/console doctrine:database:create --env=test
-  #- php bin/console doctrine:schema:create --env=test
-  #- php bin/console doctrine:fixtures:load -n --env=test
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+  - php bin/console doctrine:fixtures:load -n --env=test
 
 script:
   - php vendor/bin/phpunit
