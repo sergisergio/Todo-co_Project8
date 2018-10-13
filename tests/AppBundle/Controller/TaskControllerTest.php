@@ -18,58 +18,11 @@ use AppBundle\Entity\Task;
 
 class TaskControllerTest extends WebTestCase
 {
-    private $client;
+    use LogTrait, CreateTrait;
 
     public function setUp()
     {
         $this->client = static::createClient();
-    }
-
-    private function logInAdmin()
-    {
-        $session = $this->client->getContainer()->get('session');
-        $firewallName = 'main';
-        $token = new UsernamePasswordToken('admin', 'admin', $firewallName, array('ROLE_ADMIN'));
-        $session->set('_security_'.$firewallName, serialize($token));
-        $session->save();
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie);
-    }
-
-    public function createUserForLogin($role, $password)
-    {
-        $user = new User;
-        $user->setUsername('user'.random_int(1, 10000));
-        $user->setEmail('email'.random_int(1, 10000).'@example.com');
-        $user->setRole($role);
-        $passwordEncoder = $this->getSecurityPasswordEncoder();
-        $passwordEncode = $passwordEncoder->encodePassword($user, $password);
-        $user->setPassword($passwordEncode);
-        $this->getEntityManager()->persist($user);
-        $this->getEntityManager()->flush();
-        return $user;
-    }
-
-    public function createTask($user)
-    {
-        $task = new Task;
-        $task->setTitle('Tâche'.random_int(1, 10000));
-        $task->setContent('Contenu de la tâche de test.');
-        $task->setUser($user);
-        $this->client->getContainer()->get('doctrine.orm.entity_manager')->persist($task);
-        $this->client->getContainer()->get('doctrine.orm.entity_manager')->flush();
-        return $task;
-    }
-
-    private function logInUser()
-    {
-        $session = $this->client->getContainer()->get('session');
-        $firewallName = 'main';
-        $token = new UsernamePasswordToken('user', 'user', $firewallName, array('ROLE_USER'));
-        $session->set('_security_'.$firewallName, serialize($token));
-        $session->save();
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie);
     }
 
     public function testTaskListPageAdminIsUp()
@@ -237,6 +190,16 @@ class TaskControllerTest extends WebTestCase
         $crawler = $this->client->followRedirect();
         $this->assertSame(200, $this->client->getResponse()->getStatusCode());
         $this->assertSame(1, $crawler->filter('div.alert-success:contains("La tâche a bien été supprimée.")')->count());
+    }
+
+    public function testAnonymousTaskDeleteByAdmin()
+    {
+        $crawler = $this->client->request('GET', '/tasks/5/delete', array(), array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'admin',
+        ));
+        $crawler = $this->client->followRedirect();
+        static::assertSame(1, $crawler->filter('html:contains("La tâche a bien été supprimée.")')->count());
     }
 
     public function testTaskDeleteByBadAuthor()

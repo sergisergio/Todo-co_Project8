@@ -16,6 +16,8 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class UserControllerTest extends WebTestCase
 {
+    use LogTrait, CreateTrait;
+
     private $client;
 
     public function setUp()
@@ -97,15 +99,9 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(302, $this->client->getResponse()->getStatusCode());
     }
 
-    /*public function testEdit()
+    public function testEdit()
     {
-        $crawler = $this->client->request('GET', '/login');
-        $buttonCrawlerForm = $crawler->selectButton('Se connecter');
-        $form = $buttonCrawlerForm->form();
-        $this->client->submit($form, [
-            '_username' => 'admin',
-            '_password' => 'admin'
-        ]);
+        $this->logInAdmin();
         $crawler = $this->client->request('GET', '/users/1/edit');
         static::assertEquals(200, $this->client->getResponse()->getStatusCode());
 
@@ -118,7 +114,7 @@ class UserControllerTest extends WebTestCase
         $this->client->submit($form);
         $crawler = $this->client->followRedirect();
         $this->assertSame(1, $crawler->filter('div.alert.alert-success:contains("modifié")')->count());
-    }*/
+    }
 
     public function tearDown()
     {
