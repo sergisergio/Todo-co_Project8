@@ -5,31 +5,37 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 class DefaultControllerTest extends WebTestCase
 {
-    private $client;
+    use LogTrait;
 
+    /**
+     * Création du client HTTP
+     */
     public function setUp()
     {
         $this->client = static::createClient();
     }
 
-    public function testIndexAction()
+    /**
+     * Test de la page d'accueil après login d'un administrateur ROLE_ADMIN
+     */
+    public function testHomeByAdmin()
     {
-        $this->logIn();
+        $this->logInAdmin();
         $this->client->request('GET', '/');
         $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
     }
 
-    private function logIn()
+    /**
+     * Test de la page d'accueil après login d'un utilisateur ROLE_USER
+     */
+    public function testHomeByUser()
     {
-        $session = $this->client->getContainer()->get('session');
-        $firewallContext = 'main';
-        $token = new UsernamePasswordToken('user', null, $firewallContext, array('ROLE_USER'));
-        $session->set('_security_'.$firewallContext, serialize($token));
-        $session->save();
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie);
+        $this->logInUser();
+        $this->client->request('GET', '/');
+        $this->assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
     }
 
     public function tearDown()

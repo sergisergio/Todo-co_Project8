@@ -10,9 +10,6 @@ namespace Tests\AppBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use AppBundle\Entity\User;
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class UserControllerTest extends WebTestCase
 {
@@ -20,11 +17,17 @@ class UserControllerTest extends WebTestCase
 
     private $client;
 
+    /**
+     * Création client HTTP
+     */
     public function setUp()
     {
         $this->client = static::createClient();
     }
 
+    /**
+     * Test d'affichage de la liste des utilisateurs par un administrateur ROLE_ADMIN
+     */
     public function testListAsAdmin()
     {
         $crawler = $this->client->request('GET', '/login');
@@ -38,6 +41,9 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
+    /**
+     * Test d'affichage de la liste des utilisateurs par un utilisateur ROLE_USER
+     */
     public function testListAsUser()
     {
         $crawler = $this->client->request('GET', '/login');
@@ -51,6 +57,9 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
+    /**
+     * Test d'affichage de la page d'ajout d'un utilisateur par un administrateur ROLE_ADMIN
+     */
     public function testCreateActionAsAdmin()
     {
         $crawler = $this->client->request('GET', '/login');
@@ -64,6 +73,9 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
+    /**
+     * Test d'affichage de la page d'ajout d'un utilisateur par un utilisateur ROLE_USER
+     */
     public function testCreateActionAsUser()
     {
         $crawler = $this->client->request('GET', '/login');
@@ -77,6 +89,9 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
+    /**
+     * Test d'ajout d'un utilisateur par un administrateur ROLE_AMIN
+     */
     public function testCreateAction()
     {
         $crawler = $this->client->request('GET', '/login');
@@ -99,7 +114,10 @@ class UserControllerTest extends WebTestCase
         static::assertEquals(302, $this->client->getResponse()->getStatusCode());
     }
 
-    public function testEdit()
+    /**
+     * Test de modification d'un utilisateur par un administrateur ROLE_ADMIN
+     */
+    public function testEditUserByAdmin()
     {
         $this->logInAdmin();
         $crawler = $this->client->request('GET', '/users/1/edit');
@@ -114,6 +132,16 @@ class UserControllerTest extends WebTestCase
         $this->client->submit($form);
         $crawler = $this->client->followRedirect();
         $this->assertSame(1, $crawler->filter('div.alert.alert-success:contains("modifié")')->count());
+    }
+
+    /**
+     * Test de modification d'un utilisateur par un utilisateur ROLE_USER
+     */
+    public function testEditUserByUser()
+    {
+        $this->logInUser();
+        $crawler = $this->client->request('GET', '/users/1/edit');
+        static::assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
     public function tearDown()

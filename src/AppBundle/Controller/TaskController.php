@@ -128,8 +128,6 @@ class TaskController extends Controller
             } else {
                 $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme étant encore à faire.', $task->getTitle()));
             }
-        } else {
-            $this->addFlash('error', 'Vous devez être l\'auteur et/ou administrateur pour modifier le statut de cette tâche !');
         }
 
         return $this->redirectToRoute('task_list');

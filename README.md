@@ -30,13 +30,33 @@ php bin/console doctrine:schema:update --force
 php bin/console doctrine:fixtures:load
 ```
 
+**Setup the Test Database**
+
+First check `config_test.yml`
+
+```
+php bin/console doctrine:database:create --env=test
+php bin/console doctrine:schema:update --force --env=test
+php bin/console doctrine:fixtures:load --env=test
+```
+
 **Start server**
 
 ```
 php bin/console server:run
 ```
-
 Now check out at `http://localhost:8000`
+
+**Tests**
+
+```
+php vendor/bin/phpunit
+or
+php vendor/bin/phpunit --coverage-html web/test-coverage
+
+```
+
+
 
 **Contribute**
 
